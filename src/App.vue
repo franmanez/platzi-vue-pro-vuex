@@ -24,12 +24,12 @@ export default {
 
   },
 
-  computed: {
-    //count () {
-      //return this.$store.state.count
-    //}
-    mapState(['count'])
-  }
+  /* computed: {
+    count () {
+      return this.$store.state.count
+    }
+  }, */
+  computed: mapState(['count'])
 }
 </script>
 
