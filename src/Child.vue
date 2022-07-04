@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!--HelloWorld msg="Welcome to Your Vue.js App"/-->
+  <div id="main">
+    <h1>Child</h1>
     <div>
       <h1>Contador</h1>
       <p>{{ count }} </p>
@@ -15,25 +14,19 @@
 
     <div>
       <button v-on:click="increment10">+10</button>
-      <button v-on:click="incrementAsync">+Async</button>
-      <button v-on:click="incrementAsyncPromise">+Async Promise</button>
-    </div>
-
-    <div>
-      <Child></Child>
     </div>
 
   </div>
 </template>
 
 <script>
-import Child from './Child.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import { mapState, mapMutations, mapGetters } from 'vuex'
 export default {
-  name: 'App',
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: 'Child',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    Child
+
   },
 
   /* computed: {
@@ -72,21 +65,6 @@ export default {
       this.$store.commit('increment', {
         number: 10
       })
-    },
-
-    incrementAsync () {
-      this.$store.dispatch('incrementAsync', {
-        number: 100
-      })
-    },
-
-    incrementAsyncPromise () {
-      this.$store.dispatch('incrementAsyncPromise', {
-        number: 100
-      })
-        .then(() => {
-          alert('ACTION TERMINADA cuando acaba la promesa')
-        })
     }
   }
 }

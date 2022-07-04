@@ -8,16 +8,34 @@ const store = new Vuex.Store({
     count: 1
   },
   getters: {
+    getDouble (state, getters) {
+      return state.count * 2
+    }
   },
   mutations: {
-    increment (state) {
-      return this.state.count++
+    increment (state, payload) {
+      if (payload.number) state.count += payload.number
+      else state.count++
     },
     decrement (state) {
-      return this.state.count--
+      this.state.count--
     }
   },
   actions: {
+    incrementAsync (context, payload) {
+      setTimeout(() => {
+        context.commit('increment', payload)
+      }, 2000)
+    },
+
+    incrementAsyncPromise (context, payload) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          context.commit('increment', payload)
+          resolve()
+        }, 2000)
+      })
+    }
   },
   modules: {
   }
